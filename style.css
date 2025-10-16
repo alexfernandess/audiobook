@@ -63,25 +63,38 @@ button {
     width: 40px;
 }
 
+/* Container para play/pause: Posiciona os ícones sobrepostos */
 #play-pause {
-    width: 60px;
+    position: relative; /* Pai para posicionamento absoluto dos filhos */
+    width: 60px; /* Define o tamanho do "botão" play/pause */
+    height: 60px; /* Define o tamanho do "botão" play/pause */
+    display: flex; /* Para centralizar o SVG dentro */
+    justify-content: center;
+    align-items: center;
 }
 
-.pause {
-    display: none;
-}
-
-.tocando .play {
-    display: none;
-}
-
-.tocando .pause {
-    display: block;
+#play-pause svg {
+    position: absolute; /* Posiciona os SVGs um em cima do outro */
+    width: 100%; /* Faz o SVG ocupar todo o espaço do #play-pause */
+    height: 100%;
+    /* Remove padding daqui, o tamanho do container #play-pause já o define */
 }
 
 #container-botoes {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center; /* Centraliza verticalmente os botões */
     gap: 10px;
+    margin-top: 1.5rem; /* Adiciona um espaço acima dos botões */
+}
+
+/* Estilo para os SVGs em geral, para que pareçam botões */
+#container-botoes svg {
+    color: #ffffff; /* Cor dos ícones */
+    transition: color 0.2s ease-in-out;
+}
+
+#container-botoes svg:hover {
+    color: #a0a0a0; /* Um leve hover para indicar interatividade */
 }
